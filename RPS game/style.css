@@ -1,0 +1,136 @@
+body{
+    background: rgb(99, 99, 99);
+    font-family:sans-serif;
+}
+.message{
+    margin: 5em 0 2em;
+    text-align: center;
+    font-weight: 600;
+    font-size: 23PX;
+    text-decoration:underline ;
+}
+.images{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    height: 200px;
+}
+.computer img, .player img{
+    width: 75%;
+}
+.shake-computer{
+    animation: shake-computer 0.8s linear;
+}
+.shake-player{
+    animation: shake-player 0.8s linear;
+}
+.reset button{
+    background: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white; 
+    font-family: sans-serif;
+    border: 1px solid red;
+    padding: 1em 2em;
+    border-radius: 7px;
+    width: 150px;
+    white-space:nowrap;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s all linear ;
+}
+.reset button:hover{
+    color: black;
+    background-color: darkcyan;
+    border: 1px solid darkcyan;
+    box-shadow: 0 0 5px rgb(9, 189, 189),
+    0 0 50px rgb(9, 189, 189), 0 0 100px rgb(9, 189, 189);
+}
+.points{
+    margin: 2em 0;
+    display: inline-flex;
+    align-items: center;
+    padding-left: 22em;
+    font-size: 23px;
+    color: black;
+    display: inline-flex;
+}
+span{
+    font-weight: 600;
+    font-size: 25px;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    align-items: center;
+    border-radius: 7px;
+
+}
+.computer_points{
+    margin-left: 3em;
+}
+.player_points{
+    margin-right: 3em;
+}
+.options{
+    margin-top: 5em;
+    display: flex;
+    justify-content: space-around;
+}
+.options button{
+    background: none;
+    color: white;
+    font-family: sans-serif;
+    border: 1px solid white;
+    padding: 1em 2em;
+    border-radius: 7px;
+    width: 150px;
+    white-space:nowrap;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s all linear ;
+}
+.options button:hover{
+    color: black;
+    background-color: darkcyan;
+    border: 1px solid darkcyan;
+    box-shadow: 0 0 5px rgb(9, 189, 189),
+    0 0 50px rgb(9, 189, 189), 0 0 100px rgb(9, 189, 189);
+}
+@keyframes shake-computer {
+    0%{
+        transform: rotate(-30deg);
+    }
+    25%{
+        transform: rotate(30deg);
+    }
+    50%{
+        transform: rotate(-30deg);
+    }
+    75%{
+        transform: rotate(30deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+
+}
+@keyframes shake-player {
+    0%{
+        transform: rotate(30deg);
+    }
+    25%{
+        transform: rotate(-30deg);
+    }
+    50%{
+        transform: rotate(30deg);
+    }
+    75%{
+        transform: rotate(-30deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+
+}

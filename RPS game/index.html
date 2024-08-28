@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper and scissors</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container"  id="rpsgame">
+        <div class="message">ROCK PAPER SCISSORS GAME</div>
+        <div class="reset">
+        <button  onclick="res()">RESET</button>
+        </div>
+        <div class="images">
+            <div class="computer">
+                <img src="./ROCKComputer.png" id="computerimage" />
+            </div>
+            <div class="player">
+                <img src="./ROCKPlayer.png" id="playerimage"/>
+            </div>
+        </div>
+        <div class="points">
+           <h3> COMPUTER</h3>   <span class="computer_points">0</span> <span>/</span>
+            <span class="player_points">0</span>  <h3>PLAYER</h3>
+        </div>
+        <div class="options ">
+            <button class="option1">ROCK</button>
+            <button class="option2">PAPER</button>
+            <button class="option3">SCISSORS</button>
+        </div>
+    </div>
+    <script>
+        const computer = document.querySelector(".computer img");
+        const player= document.querySelector(".player img");
+        const computer_points= document.querySelector(".computer_points");
+        const player_points= document.querySelector(".player_points");
+        const options= document.querySelectorAll(".options button");
+
+       options.forEach((option) => {
+        option.addEventListener("click", () =>{
+           computer.classList.add("shake-computer");
+           player.classList.add("shake-player");
+
+           setTimeout(()=>{
+            computer.classList.remove("shake-computer");
+            player.classList.remove("shake-player");
+
+            player.src= "./"+option.innerHTML+"player.png";
+            const choice=["ROCK","PAPER","SCISSORS"];
+            let arrayNo= Math.floor(Math.random()*3);
+            let computerchoice = choice[arrayNo];
+            computer.src = "./" + computerchoice + "computer.png";
+            let cpoints=parseInt(computer_points.innerHTML);
+            let ppoints= parseInt(player_points.innerHTML);
+
+
+            if(option.innerHTML==="ROCK"){
+                if(computerchoice==="PAPER")
+                  computer_points.innerHTML = cpoints+1;
+                else if(computerchoice==="SCISSORS")
+                  player_points.innerHTML =ppoints+1;
+            } else if(option.innerHTML==="PAPER"){
+                if(computerchoice==="SCISSORS")
+                   computer_points.innerHTML = cpoints+1;
+                else if ( computerchoice==="ROCK")
+                  player_points.innerHTML= ppoints+1;
+            }else{
+                if(computerchoice==="ROCK")
+                   computer_points.innerHTML = cpoints+1;
+                else if ( computerchoice==="PAPER")
+                   player_points.innerHTML= ppoints+1;
+            }
+           }, 900);
+        });
+       });
+       function res(){
+       computer_points.innerHTML="0";
+       player_points.innerHTML="0";
+       document.getElementById("computerimage").src="./ROCKcomputer.png";
+       document.getElementById("playerimage").src="./ROCKplayer.png";
+
+       }
+    </script>
+</body>
+</html>
